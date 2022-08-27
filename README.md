@@ -5,7 +5,7 @@ This is a template to configure your own CDN, hosted on AWS.
 It uses the following components:
 - AWS S3: For storing files in an AWS Bucket
 - AWS CloudFront: For applying a CDN on top of the AWS S3 Bucket and using a custom domain for the hosted files
-- AWS Hosted Zone and SSL Certificate
+- AWS Route 53: For using a Hosted Zone and a SSL Certificate
 
 > Forked from https://github.com/thabo-lebelo/on-demand-videos
 

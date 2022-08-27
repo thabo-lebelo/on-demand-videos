@@ -6,6 +6,6 @@ import { InitCdnStack } from '../lib/init-cdn-stack';
 const app = new cdk.App();
 new InitCdnStack(app, 'CDNStack', {
   stackName: 'cdn',
-  description: 'Hosting on-demand streaming video with Amazon S3, Amazon CloudFront, and Amazon Route 53',
+  description: 'CDN powered by AWS S3, AWS CloudFront, and AWS Route 53',
   env: { account: '123456789012', region: 'us-east-1' },
 });
