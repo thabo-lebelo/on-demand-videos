@@ -1,8 +1,8 @@
 {
-  "name": "on-demand-videos",
+  "name": "template-init-aws-cloudfront-s3-cdn",
   "version": "0.1.0",
   "bin": {
-    "on-demand-videos": "bin/on-demand-videos.js"
+    "cdn": "bin/cdn.js"
   },
   "scripts": {
     "build": "tsc",

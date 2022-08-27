@@ -21,7 +21,7 @@ import * as route53Targets from 'aws-cdk-lib/aws-route53-targets';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
 
-export class OnDemandVideosStack extends Stack {
+export class InitCdnStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 

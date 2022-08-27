@@ -1,5 +1,5 @@
 {
-  "app": "npx ts-node --prefer-ts-exts bin/on-demand-videos.ts",
+  "app": "npx ts-node --prefer-ts-exts bin/cdn.ts",
   "watch": {
     "include": [
       "**"
