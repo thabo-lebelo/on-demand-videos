@@ -1,11 +1,19 @@
 #!/usr/bin/env node
 import * as cdk from 'aws-cdk-lib';
+import { StackProps } from 'aws-cdk-lib';
 import 'source-map-support/register';
 import { InitCdnStack } from '../lib/init-cdn-stack';
 
+const config = require('../config.json');
+
 const app = new cdk.App();
-new InitCdnStack(app, 'CDNStack', {
-  stackName: 'cdn',
-  description: 'CDN powered by AWS S3, AWS CloudFront, and AWS Route 53',
-  env: { account: '123456789012', region: 'us-east-1' },
-});
+const stackProps: StackProps = {
+  stackName: config.stack.name,
+  description: config.stack.description,
+  env: {
+    account: config.account,
+    region: config.region,
+  },
+};
+
+new InitCdnStack(app, 'CDNStack', stackProps);
