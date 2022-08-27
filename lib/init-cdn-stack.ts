@@ -27,8 +27,8 @@ export class InitCdnStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    // Create an S3 bucket
-    const videoBucket = new Bucket(this, config.s3.bucketId, {
+    // Create an S3 bucket, to host all files that'll be stored into our CDN
+    const cdnBucket = new Bucket(this, config.s3.bucketId, {
       versioned: false,
       removalPolicy: RemovalPolicy.DESTROY,
     });
@@ -52,7 +52,7 @@ export class InitCdnStack extends Stack {
     // Creating CloudFront distribution
     const cloudFrontDist = new Distribution(this, `${config.stack.name}CloudfrontDist`, {
       defaultBehavior: {
-        origin: new origins.S3Origin(videoBucket as any, {
+        origin: new origins.S3Origin(cdnBucket as any, {
           originAccessIdentity: originAccessIdentity as any,
         }) as any,
         allowedMethods: AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
@@ -82,7 +82,7 @@ export class InitCdnStack extends Stack {
     });
 
     new CfnOutput(this, 'Bucket', {
-      value: videoBucket.bucketName,
+      value: cdnBucket.bucketName,
     });
   }
 }
